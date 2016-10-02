@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/story_row_layout"
+    android:background="@color/colorContrast">
+
+
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/distance_label"
+            android:layout_gravity="center_horizontal"
+            android:visibility="visible"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp" />
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardCornerRadius="0dp"
+            card_view:cardElevation="4dp"
+            android:layout_marginBottom="13dp"
+            android:layout_marginTop="10dp"
+            card_view:cardPreventCornerOverlap="true">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible"
+                android:id="@+id/story_details_layout"
+                android:padding="0dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/story_card_body">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:id="@+id/story_thumbnail"
+                            android:scaleType="centerCrop"
+                            android:visibility="gone"
+                            android:layout_gravity="center_horizontal"
+                            android:adjustViewBounds="true" />
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="false"
+                            android:layout_alignWithParentIfMissing="false"
+                            android:layout_alignParentStart="false"
+                            android:layout_alignParentEnd="false"
+                            android:layout_alignBottom="@+id/story_thumbnail"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:paddingBottom="10dp"
+                            android:paddingTop="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:text="Large Text"
+                                android:id="@+id/story_title_view"
+                                android:textColor="@color/colorContrast"
+                                android:layout_marginBottom="5dp"
+                                android:visibility="gone" />
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="55dp">
+
+                                <de.hdodenhof.circleimageview.CircleImageView
+                                    android:layout_width="45dp"
+                                    android:layout_height="45dp"
+                                    app:civ_border_width="2dp"
+                                    app:civ_border_color="#FF000000"
+                                    android:id="@+id/user_image"
+                                    android:src="@drawable/placeholder_avatar"
+                                    android:scaleType="centerCrop"
+                                    android:layout_gravity="center_vertical" />
+
+                                <LinearLayout
+                                    android:orientation="vertical"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical"
+                                    android:layout_gravity="center_vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textAppearance="?android:attr/textAppearanceSmall"
+                                        android:id="@+id/user_name"
+                                        android:text="User Name"
+                                        android:singleLine="true"
+                                        android:elegantTextHeight="false"
+                                        android:layout_marginLeft="7dp"
+                                        android:layout_gravity="top"
+                                        android:textSize="18sp"
+                                        android:layout_marginBottom="0dp"
+                                        android:gravity="center_vertical" />
+
+                                    <LinearLayout
+                                        android:orientation="horizontal"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:paddingLeft="8dp"
+                                        android:paddingRight="10dp"
+                                        android:paddingTop="3dp"
+                                        android:paddingBottom="3dp"
+                                        android:id="@+id/location_banner_view"
+                                        android:layout_marginLeft="7dp"
+                                        android:background="@drawable/location_banner_marker_green"
+                                        android:gravity="center_vertical">
+
+                                        <ImageView
+                                            android:layout_width="12dp"
+                                            android:layout_height="12dp"
+                                            android:id="@+id/imageView6"
+                                            android:src="@drawable/ic_location_on_white_48dp"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="New Text"
+                                            android:id="@+id/location_name"
+                                            android:layout_gravity="center"
+                                            android:textColor="@color/colorContrast"
+                                            android:layout_marginStart="4dp"
+                                            android:textSize="12sp"
+                                            android:singleLine="true" />
+
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/story_text"
+                        android:textSize="16sp"
+                        android:lineSpacingExtra="5dp"
+                        android:visibility="visible"
+                        android:fontFamily="georgia"
+                        android:paddingBottom="15dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:text="Denote simple fat denied add worthy little use. As some he so high down am week. Conduct esteems by cottage to pasture we winding."
+                        android:textColor="@color/colorTextDark" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/story_summary"
+                        android:textSize="16sp"
+                        android:lineSpacingExtra="5dp"
+                        android:visibility="visible"
+                        android:fontFamily="georgia"
+                        android:paddingBottom="15dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:text="Denote simple fat denied add worthy little use. As some he so high down am week. Conduct esteems by cottage to pasture we winding."
+                        android:textColor="@color/colorTextDark"
+                        android:paddingTop="10dp" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:id="@+id/story_picture"
+                        android:scaleType="centerCrop"
+                        android:visibility="visible" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/colorContrast"
+                        android:layout_marginBottom="10dp" />
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical|right"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="15dp"
+                        android:paddingTop="5dp"
+                        android:paddingRight="15dp"
+                        android:paddingBottom="7dp">
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:layout_weight="1">
+
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:id="@+id/imageView12"
+                                android:src="@drawable/ic_visibility_gray_48dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceSmall"
+                                android:id="@+id/no_views_label"
+                                android:layout_marginLeft="4dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/like_button"
+                            android:gravity="center_vertical|right"
+                            android:layout_weight="1">
+
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:src="@drawable/ic_favorite_border_black_48dp"
+                                android:id="@+id/likes_icon" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/no_likes_label"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="3dp"
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/bookmark_button"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical|right">
+
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:src="@drawable/ic_bookmark_border_black_48dp"
+                                android:id="@+id/bookmarks_icon" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/no_bookmars_label"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="2dp"
+                                android:textAppearance="?android:attr/textAppearanceSmall" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+
+</FrameLayout>

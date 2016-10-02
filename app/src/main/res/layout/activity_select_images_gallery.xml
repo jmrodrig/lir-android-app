@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:padding="6dp"
+        android:elevation="4dp"
+        android:id="@+id/select_picture_options_view">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/picture_location_checkBox"
+            android:checked="false"
+            android:text="@string/picture_location_checkBox_text"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp" />
+
+    </LinearLayout>
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/images_gallery_grid_view"
+        android:numColumns="2"
+        android:horizontalSpacing="2dp"
+        android:gravity="center"
+        android:verticalSpacing="2dp"
+        android:contextClickable="false"
+        android:layout_weight="1" />
+
+</LinearLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/story_content_layout"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:animateLayoutChanges="true">
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_weight="0"
+        android:elevation="6dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/new_section_button"
+            android:layout_weight="1"
+            android:src="@drawable/ic_playlist_add_black_48dp"
+            android:padding="8dp"
+            android:background="@drawable/create_story_border_left_button"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/add_location_button"
+            android:layout_weight="1"
+            android:src="@drawable/ic_add_location_black_48dp"
+            android:padding="8dp"
+            android:background="@drawable/create_story_border_left_button"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/add_picture_button"
+            android:layout_weight="1"
+            android:src="@drawable/ic_insert_photo_black_48dp"
+            android:padding="8dp"
+            android:background="@color/colorContrast" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/format_text_button"
+            android:layout_weight="1"
+            android:src="@drawable/ic_format_size_black_48dp"
+            android:padding="8dp"
+            android:background="@drawable/create_story_border_right_button"/>
+    </LinearLayout>
+</LinearLayout>

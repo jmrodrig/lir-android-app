@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/profile_view_parent">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/profile_view_scroller" >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/profile_layout_view"
+                android:alpha="0">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/profile_details_layout_view">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="16dp">
+
+                        <RelativeLayout
+                            android:layout_width="120dp"
+                            android:layout_height="120dp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:id="@+id/profile_avatar_picture_view"
+                                android:layout_gravity="center_horizontal"
+                                android:scaleType="centerCrop"
+                                app:civ_border_width="1dp"
+                                app:civ_border_color="@color/colorContrast"
+                                android:layout_margin="4dp" />
+
+                            <ImageView
+                                android:layout_width="26dp"
+                                android:layout_height="26dp"
+                                android:id="@+id/change_user_avatar_button"
+                                android:layout_alignParentTop="false"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentEnd="true"
+                                android:src="@drawable/ic_edit_black_48dp"
+                                android:layout_alignParentBottom="true" />
+
+                        </RelativeLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:padding="7dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAppearance="?android:attr/textAppearanceLarge"
+                                android:id="@+id/user_name_label"
+                                android:layout_gravity="center_horizontal"
+                                android:editable="false"
+                                android:textAlignment="center" />
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:id="@+id/no_created_stories_label"
+                                    android:layout_marginRight="8dp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textAppearance="?android:attr/textAppearanceSmall"
+                                    android:id="@+id/no_followers_label" />
+                            </LinearLayout>
+
+                            <Button
+                                android:layout_width="wrap_content"
+                                android:layout_height="35dp"
+                                android:text="@string/profile_follow_button_follow"
+                                android:id="@+id/follow_user_button"
+                                android:layout_gravity="center_horizontal"
+                                android:background="@drawable/transparent_button_dark"
+                                android:textColor="@color/colorSecondary"
+                                android:visibility="gone"
+                                android:layout_marginTop="5dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Stories"
+                            android:id="@+id/stories_switch_button"
+                            android:layout_weight="1"
+                            android:background="@drawable/profile_border_selected_button" />
+
+                        <Button
+                            style="?android:attr/buttonStyleSmall"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="map"
+                            android:id="@+id/map_switch_button"
+                            android:layout_weight="1"
+                            android:background="@drawable/profile_border_right_button" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/stories_and_map_container_layout">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/map_fragment_container"
+                        android:visibility="gone">
+
+                        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                            xmlns:tools="http://schemas.android.com/tools"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/map_container"
+                            tools:context=".StoryListActivity"
+                            android:name="com.google.android.gms.maps.SupportMapFragment" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:alpha="0"
+                        android:id="@+id/profile_stories_layout">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/user_stories_viewgroup"
+                            android:layout_marginTop="10dp"
+                            android:visibility="gone">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Created Stories"
+                                android:id="@+id/user_stories_list_label"
+                                android:layout_marginBottom="10dp"
+                                android:layout_gravity="center_horizontal" />
+
+                            <ListView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/user_stories_list"
+                                android:choiceMode="multipleChoice"
+                                android:scrollIndicators="none" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/bookmarked_stories_viewgroup"
+                            android:visibility="gone"
+                            android:layout_marginTop="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Bookmarked Stories"
+                                android:id="@+id/bookmarked_stories_list_label"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_gravity="center_horizontal" />
+
+                            <ListView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/bookmarked_stories_list"
+                                android:scrollIndicators="none" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:text="There are no stories created or bookmarked."
+                            android:id="@+id/no_stories_warning_view"
+                            android:textAlignment="center"
+                            android:textStyle="italic"
+                            android:visibility="gone"
+                            android:layout_marginTop="25dp"
+                            android:layout_gravity="center_horizontal" />
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/loading_stories_progress_bar"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="25dp"
+                    android:visibility="visible" />
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</RelativeLayout>

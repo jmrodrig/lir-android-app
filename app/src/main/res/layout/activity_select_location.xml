@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/map_fragment_container">
+
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/map_container"
+            tools:context=".SelectLocationActivity"
+            android:name="com.google.android.gms.maps.SupportMapFragment" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/map_sight"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/map_sight_dot" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="4dp"
+            android:background="@drawable/select_location_activity_floating_view"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="true"
+            android:layout_margin="5dp"
+            android:padding="6dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select area"
+                    android:id="@+id/area_mode_checkbox"
+                    android:layout_gravity="right"
+                    android:checked="false"
+                    android:layout_weight="1" />
+
+                <Switch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sattelite view  "
+                    android:id="@+id/map_mode_switch"
+                    android:layout_gravity="right"
+                    android:checked="false" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <android.support.design.widget.TextInputLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/textInputLayoutLightStyle">
+
+                    <EditText android:id="@+id/location_name_edit" android:layout_width="match_parent"
+                        android:layout_height="wrap_content" android:hint="Location name"
+                        android:imeOptions="actionDone" android:inputType="textCapSentences"
+                        android:maxLines="1" android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

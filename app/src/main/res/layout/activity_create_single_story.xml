@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/story_content_layout"
+            android:paddingTop="10dp"
+            android:paddingBottom="70dp"
+            android:animateLayoutChanges="true"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="15dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:background="@drawable/location_banner_black"
+                android:id="@+id/choose_location_btn"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:id="@+id/imageView8"
+                    android:src="@drawable/ic_location_on_black_48dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(choose location)"
+                    android:textSize="16sp"
+                    android:id="@+id/location_name"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/colorBackgroundDark"
+                    android:singleLine="true"
+                    android:layout_marginStart="4dp" />
+            </LinearLayout>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@android:color/black"
+                android:ems="10"
+                android:id="@+id/story_text"
+                android:layout_gravity="top"
+                android:fontFamily="georgia"
+                android:hint="story text"
+                android:lineSpacingExtra="8dp"
+                android:textColorHint="@color/colorHintLightBackground"
+                android:background="@drawable/story_text_single_story_background"
+                android:inputType="textMultiLine|textCapSentences"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:singleLine="false"
+                android:paddingLeft="7dp"
+                android:autoText="false"
+                android:gravity="top"
+                android:minLines="3" />
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/picture_container_view"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/story_picture"
+                    android:scaleType="centerCrop"
+                    android:visibility="visible" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/gradient_action_bar">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/remove_picture_btn"
+                        android:src="@drawable/ic_clear_white_48dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_margin="5dp" />
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/add_picture_btn"
+                android:gravity="center_horizontal"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:padding="4dp"
+                android:background="@drawable/transparent_button_dark">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/imageView9"
+                    android:src="@drawable/ic_insert_photo_black_48dp"
+                    android:layout_marginRight="5dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Add Picture"
+                    android:id="@+id/textView12"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp">
+
+                <RelativeLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="0"
+                    android:background="@drawable/transparent_button_dark"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="7dp">
+
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/post_share_scope_options_spinner"
+                        android:spinnerMode="dropdown"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_margin="15dp" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Publishing options"
+                    android:id="@+id/textView11"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/background_material_light"
+                    android:paddingLeft="7dp"
+                    android:paddingRight="7dp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

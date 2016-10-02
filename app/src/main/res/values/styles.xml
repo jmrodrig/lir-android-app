@@ -1,0 +1,224 @@
+<resources>
+
+    <declare-styleable name="AppTheme">
+        <attr name="storyTextStyle" format="reference" />
+        <attr name="storyTextEditStyle" format="reference" />
+        <attr name="storyImageViewStyle" format="reference" />
+        <attr name="storySubtitleStyle" format="reference" />
+        <attr name="locationBannerStyle" format="reference" />
+        <attr name="locationIconStyle" format="reference" />
+        <attr name="storyLocationNameStyle" format="reference" />
+        <attr name="sectionLayoutStyle" format="reference" />
+        <attr name="sectionEditLayoutStyle" format="reference" />
+        <attr name="pictureLayoutStyle" format="reference" />
+        <attr name="pictureOverlayLayoutStyle" format="reference" />
+        <attr name="pictureCaptionStyle" format="reference" />
+        <attr name="pictureCaptionEditStyle" format="reference" />
+        <attr name="pictureRemoveButtonStyle" format="reference" />
+    </declare-styleable>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">#000000</item>
+        <item name="storyTextStyle">@style/storyTextStyle</item>
+        <item name="storySubtitleStyle">@style/storySubtitleStyle</item>
+        <item name="locationBannerStyle">@style/locationBannerStyle</item>
+        <item name="locationIconStyle">@style/locationIconStyle</item>
+        <item name="storyLocationNameStyle">@style/storyLocationNameStyle</item>
+        <item name="storyTextEditStyle">@style/storyTextEditStyle</item>
+        <item name="storyImageViewStyle">@style/storyImageViewStyle</item>
+        <item name="sectionLayoutStyle">@style/sectionLayoutStyle</item>
+        <item name="sectionEditLayoutStyle">@style/sectionEditLayoutStyle</item>
+        <item name="pictureLayoutStyle">@style/pictureLayoutStyle</item>
+        <item name="pictureOverlayLayoutStyle">@style/pictureOverlayLayoutStyle</item>
+        <item name="pictureCaptionStyle">@style/pictureCaptionStyle</item>
+        <item name="pictureCaptionEditStyle">@style/pictureCaptionEditStyle</item>
+        <item name="pictureRemoveButtonStyle"> @style/pictureRemoveButton</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <!-- Launcher Activity theme. -->
+    <style name="LauncherActivityTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">#000000</item>
+    </style>
+
+    <!-- Launcher Activity theme. -->
+    <style name="StoryListActivityTheme" parent="AppTheme">
+        <item name="actionBarStyle"> @style/AppActionBarLogo</item>
+        <item name="android:actionBarStyle"> @style/AppActionBarLogo</item>
+    </style>
+
+    <style name="AppActionBarLogo" parent="@style/Widget.AppCompat.Light.ActionBar">
+        <item name="background">@color/colorPrimary</item>
+        <item name="logo">@drawable/logo_white_padding</item>
+        <item name="displayOptions">showHome|useLogo|showTitle</item>
+    </style>
+
+    <!-- Read Activity theme. -->
+    <style name="ReadActivityTheme" parent="AppTheme">
+        <item name="android:actionBarStyle">@style/TransparentActionBar</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/TransparentActionBar</item>
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
+    <!-- ACTION BAR STYLES -->
+    <style name="TransparentActionBar" parent="@style/Widget.AppCompat.Light.ActionBar">
+        <item name="android:background">@drawable/gradient_action_bar</item>
+        <!-- Support library compatibility -->
+        <item name="background">@drawable/gradient_action_bar</item>
+
+    </style>
+
+    <style name="storyTextEditStyle" parent="android:Widget.EditText">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:lineSpacingExtra">8dp</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:fontFamily">"georgia"</item>
+        <item name="android:inputType">textCapSentences|textMultiLine</item>
+    </style>
+
+    <style name="storyTextStyle" parent="android:Widget.TextView">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:lineSpacingExtra">8dp</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:fontFamily">"georgia"</item>
+    </style>
+
+    <style name="storySubtitleStyle">
+        <item name="android:textSize">27sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">10dp</item>
+        <item name="android:fontFamily">"georgia"</item>
+        <item name="android:inputType">textCapSentences|textMultiLine</item>
+    </style>
+
+    <style name="pictureCaptionEditStyle" parent="android:Widget.EditText">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#AAA</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:hint">@string/picture_caption_default</item>
+        <item name="android:inputType">textCapSentences</item>
+    </style>
+
+    <style name="pictureCaptionStyle" parent="android:Widget.TextView">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">#AAA</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="pictureLayoutStyle" parent="@android:style/Widget">
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">15dp</item>
+    </style>
+
+    <style name="pictureRemoveButton" parent="@android:style/Widget">
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:src">@drawable/ic_clear_white_48dp</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
+    <style name="storyImageViewStyle" parent="@android:style/Widget">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="sectionLayoutStyle" parent="@android:style/Widget">
+        <item name="android:paddingTop">10dp</item>
+        <item name="android:paddingBottom">10dp</item>
+    </style>
+
+    <style name="sectionEditLayoutStyle" parent="@android:style/Widget">
+        <item name="android:background">@drawable/section_edit_background</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">20dp</item>
+        <item name="android:animateLayoutChanges">false</item>
+    </style>
+
+    <style name="pictureOverlayLayoutStyle" parent="@android:style/Widget">
+        <item name="android:background">@drawable/picture_rectangle</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="textInputLayoutStyle" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColorHint">@color/colorHintDarkBackground</item>
+        <item name="colorControlNormal">@color/colorHintDarkBackground</item>
+    </style>
+
+    <style name="textInputLayoutLightStyle" >
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColorHint">@color/colorHintLightBackground</item>
+        <item name="colorControlNormal">@color/colorHintLightBackground</item>
+    </style>
+
+    <style name="locationBannerStyle" parent="@android:style/Widget">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:background">@drawable/location_banner</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">15dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="locationIconStyle" parent="@android:style/Widget">
+        <item name="android:layout_width">15dp</item>
+        <item name="android:layout_height">15dp</item>
+        <item name="android:src">@drawable/ic_location_on_blue_48dp</item>
+    </style>
+
+    <style name="storyLocationNameStyle" parent="android:Widget.TextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorSecondary</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="italicTextStyle">
+        <item name="android:textStyle">italic</item>
+        <item name="android:textColor">@color/colorContrastSecondary</item>
+    </style>
+
+    <style name="normalTextStyle">
+        <item name="android:textStyle">normal</item>
+    </style>
+
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="section_type" />
+    <item type="id" name="section_object" />
+    <item type="id" name="item_type" />
+    <item type="id" name="item_link" />
+    <item type="id" name="item_link_uploaded_state" />
+
+    <integer-array name="markers_array">
+        <item>@drawable/marker_red</item>
+        <item>@drawable/marker_orange</item>
+        <item>@drawable/marker_green</item>
+        <item>@drawable/marker_blue</item>
+        <item>@drawable/marker_purple</item>
+        <item>@drawable/marker_pink</item>
+    </integer-array>
+
+    <integer-array name="location_banner_color_array">
+        <item>@drawable/location_banner_marker_red</item>
+        <item>@drawable/location_banner_marker_orange</item>
+        <item>@drawable/location_banner_marker_green</item>
+        <item>@drawable/location_banner_marker_blue</item>
+        <item>@drawable/location_banner_marker_purple</item>
+        <item>@drawable/location_banner_marker_pink</item>
+    </integer-array>
+</resources>
