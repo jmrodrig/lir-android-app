@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.location.Criteria;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
@@ -84,10 +86,18 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 public void onClick(View v) {
                     if (mMap.getMapType() == GoogleMap.MAP_TYPE_NORMAL) {
                         mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-                        v.setBackground(getDrawable(R.drawable.map_activity_border_right_selected_button));
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            v.setBackground(getDrawable(R.drawable.map_activity_border_right_selected_button));
+                        } else {
+                            v.setBackground(getResources().getDrawable(R.drawable.map_activity_border_right_selected_button));
+                        }
                     } else {
                         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-                        v.setBackground(getDrawable(R.drawable.map_activity_border_right_button));
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            v.setBackground(getDrawable(R.drawable.map_activity_border_right_button));
+                        } else {
+                            v.setBackground(getResources().getDrawable(R.drawable.map_activity_border_right_button));
+                        }
                     }
                 }
             });
@@ -145,8 +155,11 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             public void onProviderDisabled(String provider) {}
         };
         if (Utils.mayRequestLocation(_this,mapfragmentcontainer)) {
-            locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER, locationListener, null);
-            locationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER, locationListener, null);
+            Criteria criteria = new Criteria();
+            criteria.setAccuracy(Criteria.ACCURACY_FINE);
+            locationManager.requestSingleUpdate(locationManager.getBestProvider(criteria, true), locationListener, null);
+            //locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER, locationListener, null);
+            //locationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER, locationListener, null);
         }
     }
 }

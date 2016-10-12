@@ -24,6 +24,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColorPrimary">#000000</item>
+        <item name="android:windowBackground">@color/windowBackground</item>
         <item name="storyTextStyle">@style/storyTextStyle</item>
         <item name="storySubtitleStyle">@style/storySubtitleStyle</item>
         <item name="locationBannerStyle">@style/locationBannerStyle</item>
@@ -81,6 +82,7 @@
     <style name="storyTextEditStyle" parent="android:Widget.EditText">
         <item name="android:background">@android:color/transparent</item>
         <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">normal</item>
         <item name="android:lineSpacingExtra">8dp</item>
         <item name="android:paddingLeft">15dp</item>
         <item name="android:paddingRight">15dp</item>

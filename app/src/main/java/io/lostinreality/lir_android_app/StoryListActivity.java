@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
+import android.location.Criteria;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Parcelable;
@@ -222,6 +223,7 @@ public class StoryListActivity extends AppCompatActivity implements OnMapReadyCa
     @Override
     public void onStart() {
         super.onStart();
+        //loadStoriesFromServerWithLocation();
         // Register the listener with the Location Manager to receive location updates
         if (Utils.mayRequestLocation(_this,storyListView))
             startLocationUpdates();
@@ -294,11 +296,11 @@ public class StoryListActivity extends AppCompatActivity implements OnMapReadyCa
     }
 
     public void onStoryLiked(Integer nolikes, Boolean currentuserlikes, StoryListAdapter.StoryViewHolder holder) {
-        holder.setNoLikesLabelView(nolikes,currentuserlikes);
+        holder.setNoLikesLabelView(nolikes, currentuserlikes);
     }
 
     public void onStoryBookmarked(Integer nosaves, Boolean currentuserbookmarked, StoryListAdapter.StoryViewHolder holder) {
-        holder.setNoBookmarksLabelView(nosaves,currentuserbookmarked);
+        holder.setNoBookmarksLabelView(nosaves, currentuserbookmarked);
     }
 
     @Override
@@ -381,8 +383,15 @@ public class StoryListActivity extends AppCompatActivity implements OnMapReadyCa
             setLoadStoriesRequest(mMapCurrentPosition);
         else if (getLastLocation() != null)
             setLoadStoriesRequest(getLastLocation());
-        else
-            return;
+        else {
+            Location l = new Location(Constants.DEFAULT_LATITUDE,
+                    Constants.DEFAULT_LONGITUDE,
+                    getString(R.string.current_location),
+                    Constants.DEFAULT_RADIUS,
+                    Constants.DEFAULT_ZOOM);
+            setLoadStoriesRequest(l);
+        }
+
         RequestQueue queue = RequestsSingleton.getInstance(this).getRequestQueue();
         queue.add(loadStoriesRequest);
     }
@@ -487,6 +496,9 @@ public class StoryListActivity extends AppCompatActivity implements OnMapReadyCa
 
     private void startLocationUpdates() {
         if (Utils.mayRequestLocation(_this,storyListView)) {
+            //Criteria criteria = new Criteria();
+            //criteria.setAccuracy(Criteria.ACCURACY_FINE);
+            //locationManager.requestSingleUpdate(locationManager.getBestProvider(criteria, true), locationListener, null);
             //locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER, locationListener,null);
             locationManager.requestSingleUpdate(LocationManager.NETWORK_PROVIDER, locationListener, null);
         }

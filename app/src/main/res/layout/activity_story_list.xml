@@ -44,18 +44,25 @@
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/map_sight_dot" />
 
-            <ProgressBar
-                style="?android:attr/progressBarStyleHorizontal"
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/load_stories_progress_bar"
-                android:layout_gravity="center_horizontal"
-                android:layout_weight="0"
-                android:visibility="visible"
-                android:indeterminate="false"
-                android:progress="10"
-                android:minHeight="4dp"
-                android:layout_alignParentBottom="true" />
+                android:layout_height="6dp"
+                android:layout_alignParentBottom="true">
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:id="@+id/load_stories_progress_bar"
+                    android:layout_gravity="center_horizontal|bottom"
+                    android:visibility="visible"
+                    android:indeterminate="false"
+                    android:progress="10"
+                    android:layout_alignParentBottom="false"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="false" />
+            </LinearLayout>
 
         </RelativeLayout>
 

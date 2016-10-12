@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.ExifInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v4.app.DialogFragment;
@@ -378,10 +379,18 @@ public class CreateOpenStoryActivity extends AppCompatActivity implements Delete
         if (selectedview instanceof EditText && selectedview.getTag(R.id.item_type) != null) {
             int itemtype = (int) selectedview.getTag(R.id.item_type);
             if (itemtype == Constants.STORY_TEXT) {
-                ((EditText) selectedview).setTextAppearance(R.style.storySubtitleStyle);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    ((EditText) selectedview).setTextAppearance(R.style.storySubtitleStyle);
+                } else {
+                    ((EditText) selectedview).setTextAppearance(this,R.style.storySubtitleStyle);
+                }
                 selectedview.setTag(R.id.item_type, Constants.STORY_SUBTITLE);
             } else {
-                ((EditText) selectedview).setTextAppearance(R.style.storyTextEditStyle);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    ((EditText) selectedview).setTextAppearance(R.style.storyTextEditStyle);
+                } else {
+                    ((EditText) selectedview).setTextAppearance(this,R.style.storyTextEditStyle);
+                }
                 selectedview.setTag(R.id.item_type, Constants.STORY_TEXT);
             }
         }
@@ -399,7 +408,11 @@ public class CreateOpenStoryActivity extends AppCompatActivity implements Delete
         ImageView pictureView = new ImageView(this);
         pictureView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
         pictureView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        pictureView.setBackgroundColor(getResources().getColor(R.color.colorTerciary));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            pictureView.setBackgroundColor(getColor(R.color.colorTerciary));
+        } else {
+            pictureView.setBackgroundColor(getResources().getColor(R.color.colorTerciary));
+        }
         pictureInnerLayout.addView(pictureView);
         RelativeLayout pictureOverlayLayout = new RelativeLayout(this);
         pictureOverlayLayout.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
@@ -421,7 +434,11 @@ public class CreateOpenStoryActivity extends AppCompatActivity implements Delete
         LayoutParams pictureButtonparams = new LayoutParams(sideDP,sideDP);
         pictureButtonparams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
         removePictureButton.setLayoutParams(pictureButtonparams);
-        removePictureButton.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            removePictureButton.setBackgroundColor(getColor(R.color.colorAccent));
+        } else {
+            removePictureButton.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+        }
         pictureOverlayLayout.addView(removePictureButton);
         removePictureButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -659,7 +676,11 @@ public class CreateOpenStoryActivity extends AppCompatActivity implements Delete
                         case Constants.STORY_SUBTITLE:
                             EditText newEditSubtitle = buildStoryEditText();
                             newEditSubtitle.setText(itemcontent.getText());
-                            newEditSubtitle.setTextAppearance(R.style.storySubtitleStyle);
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                newEditSubtitle.setTextAppearance(R.style.storySubtitleStyle);
+                            } else {
+                                newEditSubtitle.setTextAppearance(this,R.style.storySubtitleStyle);
+                            }
                             newEditSubtitle.setTag(R.id.item_type, Constants.STORY_SUBTITLE);
                             sectionlayout.addView(newEditSubtitle);
                             break;

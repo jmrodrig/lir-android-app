@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
+import android.os.Build;
 import android.os.Parcelable;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -61,11 +63,20 @@ public class StoryListAdapter extends RecyclerView.Adapter<StoryListAdapter.Stor
                 holder.storyThumbnailView.setVisibility(View.VISIBLE);
                 holder.storyTitleTextView.setVisibility(View.VISIBLE);
                 holder.storyTextTextView.setVisibility(View.GONE);
-                holder.userNameTextView.setTextColor(context.getColor(R.color.colorContrast));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    holder.userNameTextView.setTextColor(context.getColor(R.color.colorContrast));
+                } else {
+                    holder.userNameTextView.setTextColor(context.getResources().getColor(R.color.colorContrast));
+                }
+
 
                 if (story.getTitle() == null || story.getTitle().length() == 0) {
                     holder.storyTitleTextView.setText("no title");
-                    holder.storyTitleTextView.setTextAppearance(context, R.style.italicTextStyle);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        holder.storyTitleTextView.setTextAppearance(R.style.italicTextStyle);
+                    } else {
+                        holder.storyTitleTextView.setTextAppearance(context, R.style.italicTextStyle);
+                    }
                 } else
                     holder.storyTitleTextView.setText(story.getTitle());
 
@@ -86,7 +97,12 @@ public class StoryListAdapter extends RecyclerView.Adapter<StoryListAdapter.Stor
                 holder.storyThumbnailView.setVisibility(View.GONE);
                 holder.storyPictureView.setVisibility(View.GONE);
                 holder.storySummaryView.setVisibility(View.GONE);
-                holder.userNameTextView.setTextColor(context.getColor(android.R.color.primary_text_light));
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    holder.userNameTextView.setTextColor(context.getColor(android.R.color.primary_text_light));
+                } else {
+                    holder.userNameTextView.setTextColor(context.getResources().getColor(android.R.color.primary_text_light));
+                }
 
                 if (story.getSummary() == null || story.getSummary().length() == 0)
                     holder.storyTextTextView.setVisibility(View.GONE);
@@ -164,7 +180,8 @@ public class StoryListAdapter extends RecyclerView.Adapter<StoryListAdapter.Stor
 
     public static class StoryViewHolder extends RecyclerView.ViewHolder {
         protected LinearLayout storyLayoutBody;
-        protected LinearLayout storyDetailsLayout, locationBannerLayout, likeButton, bookmarkButton;
+        protected CardView storyDetailsLayout;
+        protected LinearLayout locationBannerLayout, likeButton, bookmarkButton;
         protected TextView userNameTextView, storyTextTextView, storySummaryView, locationNameTextView, distanceLabelTextView, storyTitleTextView, noLikesLabel, noBookmarksLabel, noViewsLabel;
         protected ImageView storyThumbnailView, storyPictureView, likeButtonIcon, bookmarkButtonIcon;
         protected CircleImageView userImageView;
@@ -175,7 +192,7 @@ public class StoryListAdapter extends RecyclerView.Adapter<StoryListAdapter.Stor
             super(v);
             storyLayoutBody = (LinearLayout) v.findViewById(R.id.story_card_body);
             distanceLabelTextView = (TextView) v.findViewById(R.id.distance_label);
-            storyDetailsLayout = (LinearLayout) v.findViewById(R.id.story_details_layout);
+            storyDetailsLayout = (CardView) v.findViewById(R.id.story_details_layout);
             likeButton = (LinearLayout) v.findViewById(R.id.like_button);
             bookmarkButton = (LinearLayout) v.findViewById(R.id.bookmark_button);
             likeButtonIcon = (ImageView) v.findViewById(R.id.likes_icon);

@@ -13,4 +13,7 @@
     <color name="colorBackgroundDark">#222222</color>
     <color name="transparent">#00000000</color>
     <color name="colorTextDark">@android:color/primary_text_light</color>
+    <color name="windowBackground">#f4f4f4</color>
+    <color name="boxBackground">#ffffff</color>
+    <color name="storyBackground">#ffffff</color>
 </resources>

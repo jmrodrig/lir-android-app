@@ -219,12 +219,22 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
             changeuseravatarbutton.setVisibility(View.GONE);
             if (user.getCurrentUserFollows()) {
                 followUserButton.setText(getString(R.string.profile_follow_button_unfollow));
-                followUserButton.setBackground(getResources().getDrawable(R.drawable.opaque_button_dark));
-                followUserButton.setTextColor(getResources().getColor(R.color.colorContrast));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    followUserButton.setBackground(getDrawable(R.drawable.opaque_button_dark));
+                    followUserButton.setTextColor(getColor(R.color.colorContrast));
+                } else {
+                    followUserButton.setBackground(getResources().getDrawable(R.drawable.opaque_button_dark));
+                    followUserButton.setTextColor(getResources().getColor(R.color.colorContrast));
+                }
             } else {
                 followUserButton.setText(getString(R.string.profile_follow_button_follow));
-                followUserButton.setBackground(getResources().getDrawable(R.drawable.transparent_button_dark));
-                followUserButton.setTextColor(getResources().getColor(R.color.colorSecondary));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    followUserButton.setTextColor(getColor(R.color.colorSecondary));
+                    followUserButton.setBackground(getDrawable(R.drawable.transparent_button_blue));
+                } else {
+                    followUserButton.setTextColor(getResources().getColor(R.color.colorSecondary));
+                    followUserButton.setBackground(getResources().getDrawable(R.drawable.transparent_button_blue));
+                }
             }
             followUserButton.setVisibility(View.VISIBLE);
         } else {
@@ -340,13 +350,23 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
     public void setUserFollowView(Boolean follows, Integer noFollowers) {
         userNoFollowersLabel.setText(noFollowers + " " + getString(R.string.profile_no_followers_label));
         if (follows) {
-            followUserButton.setBackground(getResources().getDrawable(R.drawable.opaque_button_dark));
-            followUserButton.setTextColor(getResources().getColor(R.color.colorContrast));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                followUserButton.setBackground(getDrawable(R.drawable.opaque_button_dark));
+                followUserButton.setTextColor(getColor(R.color.colorContrast));
+            } else {
+                followUserButton.setBackground(getResources().getDrawable(R.drawable.opaque_button_dark));
+                followUserButton.setTextColor(getResources().getColor(R.color.colorContrast));
+            }
             followUserButton.setText(getString(R.string.profile_follow_button_unfollow));
         } else {
             followUserButton.setText(getString(R.string.profile_follow_button_follow));
-            followUserButton.setBackground(getResources().getDrawable(R.drawable.transparent_button_dark));
-            followUserButton.setTextColor(getResources().getColor(R.color.colorSecondary));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                followUserButton.setBackground(getDrawable(R.drawable.transparent_button_blue));
+                followUserButton.setTextColor(getColor(R.color.colorSecondary));
+            } else {
+                followUserButton.setBackground(getResources().getDrawable(R.drawable.transparent_button_blue));
+                followUserButton.setTextColor(getResources().getColor(R.color.colorSecondary));
+            }
         }
     }
 
@@ -391,7 +411,11 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
                 summarylabel.setVisibility(View.GONE);
                 if (story.getTitle() == null || story.getTitle().length() == 0) {
                     titlelabel.setText("no title");
-                    titlelabel.setTextAppearance(getContext(), R.style.italicTextStyle);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        titlelabel. setTextAppearance(R.style.italicTextStyle);
+                    } else {
+                        titlelabel.setTextAppearance(getContext(), R.style.italicTextStyle);
+                    }
                     titlelabel.setVisibility(View.VISIBLE);
                 } else if (story.getFormat() == Constants.STORY_FORMAT_SINGLE) {
                     titlelabel.setVisibility(View.GONE);
@@ -403,13 +427,19 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
 
             if (story.getLocation() == null || story.getLocation().name.length() == 0) {
                 locationlabel.setText("no location");
-                locationlabel.setTextColor(getResources().getColor(R.color.colorContrast));
-                locationbanner.setBackground(getDrawable(R.drawable.location_banner_no_location));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    locationlabel.setTextColor(getColor(R.color.colorContrast));
+                    locationbanner.setBackground(getDrawable(R.drawable.location_banner_no_location));
+                } else {
+                    locationlabel.setTextColor(getResources().getColor(R.color.colorContrast));
+                    locationbanner.setBackground(getResources().getDrawable(R.drawable.location_banner_no_location));
+                }
             } else {
                 locationlabel.setText(story.getLocation().name);
                 TypedArray bannerbg = context.getResources().obtainTypedArray(R.array.location_banner_color_array);
                 long index = story.getId() % bannerbg.length();
                 locationbanner.setBackground(bannerbg.getDrawable((int) index));
+                bannerbg.recycle();
             }
 
             authorlabel.setText(story.getAuthor().getFullName());
@@ -543,9 +573,13 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
             profileStoriesLayout.setVisibility(View.GONE);
             mapcontainerlayout.setVisibility(View.VISIBLE);
             profileViewParentLayout.setEnabled(false);
-            mapswitchbutton.setBackground(getDrawable(R.drawable.profile_border_selected_button));
-            storiesswitchbutton.setBackground(getDrawable(R.drawable.profile_border_left_button));
-
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                mapswitchbutton.setBackground(getDrawable(R.drawable.profile_border_selected_button));
+                storiesswitchbutton.setBackground(getDrawable(R.drawable.profile_border_left_button));
+            } else {
+                mapswitchbutton.setBackground(getResources().getDrawable(R.drawable.profile_border_selected_button));
+                storiesswitchbutton.setBackground(getResources().getDrawable(R.drawable.profile_border_left_button));
+            }
             if (lastFeedStories != null && lastFeedStories.size() > 0 && lastFeedStoriesbounds != null) {
                 int padding = 100;
                 mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(lastFeedStoriesbounds,mapwidth,mapheight, padding));
@@ -557,8 +591,13 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
             profileStoriesLayout.setVisibility(View.VISIBLE);
             mapcontainerlayout.setVisibility(View.GONE);
             profileViewParentLayout.setEnabled(true);
-            mapswitchbutton.setBackground(getDrawable(R.drawable.profile_border_right_button));
-            storiesswitchbutton.setBackground(getDrawable(R.drawable.profile_border_selected_button));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                mapswitchbutton.setBackground(getDrawable(R.drawable.profile_border_right_button));
+                storiesswitchbutton.setBackground(getDrawable(R.drawable.profile_border_selected_button));
+            } else {
+                mapswitchbutton.setBackground(getResources().getDrawable(R.drawable.profile_border_right_button));
+                storiesswitchbutton.setBackground(getResources().getDrawable(R.drawable.profile_border_selected_button));
+            }
         }
 
     }
@@ -567,6 +606,7 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
         LatLngBounds.Builder boundsbuilder = new LatLngBounds.Builder();
         TypedArray markersicons = getResources().obtainTypedArray(R.array.markers_array);
         mMap.clear();
+        int markerscount = 0;
         for (Story story : list) {
             if (story.getLocation() != null) {
                 long index = story.getId() % markersicons.length();
@@ -579,10 +619,13 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
                 else
                     markeroptions.title(story.getLocationName());
                 mMap.addMarker(markeroptions);
+                markerscount++;
                 boundsbuilder.include(l);
             }
         }
-        lastFeedStoriesbounds = boundsbuilder.build();
+        if (markerscount > 0)
+            lastFeedStoriesbounds = boundsbuilder.build();
+
     }
 
     private void showMenuItems() {

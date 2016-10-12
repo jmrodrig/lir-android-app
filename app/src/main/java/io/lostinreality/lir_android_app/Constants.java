@@ -94,9 +94,9 @@ public final class Constants {
     public static final double LOCATION_AREA_RADIUS_PIX = 100;
 
 
-    public static final double DEFAULT_ZOOM = 12;
-    public static final double DEFAULT_LATITUDE = 0.0;
-    public static final double DEFAULT_LONGITUDE = 0.0;
+    public static final double DEFAULT_ZOOM = 8;
+    public static final double DEFAULT_LATITUDE = 39.432031;
+    public static final double DEFAULT_LONGITUDE = -8.084700;
     public static final String DEFAULT_LOCATION_NAME = "no location";
     public static final double DEFAULT_RADIUS = 0.0;
 

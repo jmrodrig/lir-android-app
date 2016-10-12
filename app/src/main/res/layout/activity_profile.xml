@@ -104,7 +104,7 @@
                                 android:text="@string/profile_follow_button_follow"
                                 android:id="@+id/follow_user_button"
                                 android:layout_gravity="center_horizontal"
-                                android:background="@drawable/transparent_button_dark"
+                                android:background="@drawable/transparent_button_blue"
                                 android:textColor="@color/colorSecondary"
                                 android:visibility="gone"
                                 android:layout_marginTop="5dp" />
@@ -128,7 +128,7 @@
                             style="?android:attr/buttonStyleSmall"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="map"
+                            android:text="MAP"
                             android:id="@+id/map_switch_button"
                             android:layout_weight="1"
                             android:background="@drawable/profile_border_right_button" />

@@ -2,6 +2,7 @@ package io.lostinreality.lir_android_app;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Parcelable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.NavUtils;
@@ -172,7 +173,11 @@ public class ReadStoryActivity extends AppCompatActivity implements DeleteStoryD
             setOnClickStartNavigationListner(locationBannerView,story.getLocation());
         } else {
             storyLocationTV.setText("no location");
-            storyLocationTV.setTextColor(getResources().getColor(R.color.colorContrastSecondary));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                storyLocationTV.setTextColor(getColor(R.color.colorContrastSecondary));
+            } else {
+                storyLocationTV.setTextColor(getResources().getColor(R.color.colorContrastSecondary));
+            }
         }
 
 

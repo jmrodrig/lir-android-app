@@ -41,19 +41,10 @@
             android:padding="6dp">
 
             <LinearLayout
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="5dp">
-
-                <CheckBox
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Select area"
-                    android:id="@+id/area_mode_checkbox"
-                    android:layout_gravity="right"
-                    android:checked="false"
-                    android:layout_weight="1" />
 
                 <Switch
                     android:layout_width="wrap_content"
@@ -63,27 +54,35 @@
                     android:layout_gravity="right"
                     android:checked="false" />
 
-            </LinearLayout>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true">
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:focusable="true"
-                android:focusableInTouchMode="true">
+                    <android.support.design.widget.TextInputLayout android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:theme="@style/textInputLayoutLightStyle">
 
-                <android.support.design.widget.TextInputLayout android:layout_width="match_parent"
+                        <EditText android:id="@+id/location_name_edit" android:layout_width="match_parent"
+                            android:layout_height="wrap_content" android:hint="Location name"
+                            android:imeOptions="actionDone" android:inputType="textCapSentences"
+                            android:maxLines="1" android:singleLine="true" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </LinearLayout>
+
+                <CheckBox
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:theme="@style/textInputLayoutLightStyle">
-
-                    <EditText android:id="@+id/location_name_edit" android:layout_width="match_parent"
-                        android:layout_height="wrap_content" android:hint="Location name"
-                        android:imeOptions="actionDone" android:inputType="textCapSentences"
-                        android:maxLines="1" android:singleLine="true" />
-
-                </android.support.design.widget.TextInputLayout>
+                    android:text="Select a region in the map"
+                    android:id="@+id/area_mode_checkbox"
+                    android:checked="false"
+                    android:layout_weight="0" />
 
             </LinearLayout>
 

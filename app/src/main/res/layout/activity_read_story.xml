@@ -19,7 +19,8 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/storyBackground">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -158,6 +159,7 @@
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
+
                 </RelativeLayout>
 
             </LinearLayout>
@@ -287,6 +289,7 @@
                 </LinearLayout>
 
             </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 
