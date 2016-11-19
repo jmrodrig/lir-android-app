@@ -171,8 +171,10 @@
                         android:paddingBottom="15dp"
                         android:paddingLeft="20dp"
                         android:paddingRight="20dp"
-                        android:text="Denote simple fat denied add worthy little use. As some he so high down am week. Conduct esteems by cottage to pasture we winding."
-                        android:textColor="@color/colorTextDark" />
+                        android:text="Denote simple fat denied add worthy little use. As some he so high down am week. Conduct esteems by cottage to pasture we winding. Denote simple fat denied add worthy little use. Denote simple fat denied add worthy little use."
+                        android:textColor="@color/colorTextDark"
+                        android:maxLines="4"
+                        android:ellipsize="end" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -187,7 +189,9 @@
                         android:paddingRight="20dp"
                         android:text="Denote simple fat denied add worthy little use. As some he so high down am week. Conduct esteems by cottage to pasture we winding."
                         android:textColor="@color/colorTextDark"
-                        android:paddingTop="10dp" />
+                        android:paddingTop="10dp"
+                        android:maxLines="4"
+                        android:ellipsize="end" />
 
                     <ImageView
                         android:layout_width="match_parent"

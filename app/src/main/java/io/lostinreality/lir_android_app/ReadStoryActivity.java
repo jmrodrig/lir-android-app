@@ -327,7 +327,8 @@ public class ReadStoryActivity extends AppCompatActivity implements DeleteStoryD
     public LinearLayout buildLocationBannerLayout(Story.ContentSection section) {
         LinearLayout.LayoutParams outerparams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
-        outerparams.setMargins(0, 0, 0, 40);
+        int marginsidesDP = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 13, getResources().getDisplayMetrics());
+        outerparams.setMargins(marginsidesDP, 0, marginsidesDP, 40);
         LinearLayout locationBannerOuterLayout = new LinearLayout(this);
         locationBannerOuterLayout.setLayoutParams(outerparams);
         locationBannerOuterLayout.setGravity(Gravity.CENTER_HORIZONTAL);
@@ -342,6 +343,10 @@ public class ReadStoryActivity extends AppCompatActivity implements DeleteStoryD
         locationicon.setLayoutParams(new LinearLayout.LayoutParams(iconsize,iconsize));
         locationBannerLayout.addView(locationicon);
         TextView locationNameTV = new TextView(this,null,R.attr.storyLocationNameStyle);
+        LinearLayout.LayoutParams locationNameTVparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        int locationNamemarginstartDP = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources().getDisplayMetrics());
+        locationNameTVparams.setMargins(locationNamemarginstartDP,0,0,0);
+        locationNameTV.setLayoutParams(locationNameTVparams);
         locationNameTV.setText(section.getLocation().name);
         locationBannerLayout.addView(locationNameTV);
         setOnClickStartNavigationListner(locationNameTV, section.getLocation());

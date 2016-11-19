@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
-import android.util.ArrayMap;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -37,6 +36,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -513,7 +513,7 @@ public class Story implements Parcelable {
     private void createInServer(Context ctx,int requestcode) {
         RequestQueue queue = RequestsSingleton.getInstance(ctx).getRequestQueue();;
         String url = Constants.CREATE_STORY_API_ENTRY + this.getFormat();
-        final Map<String, String> mHeaders = new ArrayMap<String, String>();
+        final Map<String, String> mHeaders = new HashMap<String, String>();
         JSONObject jsonstory = null;
         JsonObjectRequest createStoryDataRequest = new JsonObjectRequest(Request.Method.POST,
             url,
@@ -553,7 +553,7 @@ public class Story implements Parcelable {
     public void sendLike(Context ctx, Object viewobj) {
         RequestQueue queue = RequestsSingleton.getInstance(ctx).getRequestQueue();
         String url = Constants.LIKE_STORY_API_ENTRY + this.getId();
-        final Map<String, String> mHeaders = new ArrayMap<String, String>();
+        final Map<String, String> mHeaders = new HashMap<String, String>();
         mHeaders.put("Content-Type", "text/plain");
         int requestcode = LIKE_STORY_API_REQUEST_CODE;
         JsonObjectRequest sendLikeRequest = new JsonObjectRequest(Request.Method.PUT,
@@ -571,7 +571,7 @@ public class Story implements Parcelable {
     public void sendBookmark(Context ctx, Object viewobj) {
         RequestQueue queue = RequestsSingleton.getInstance(ctx).getRequestQueue();
         String url = Constants.BOOKMARK_STORY_API_ENTRY + this.getId();
-        final Map<String, String> mHeaders = new ArrayMap<String, String>();
+        final Map<String, String> mHeaders = new HashMap<String, String>();
         mHeaders.put("Content-Type", "text/plain");
         int requestcode = BOOKMARK_STORY_API_REQUEST_CODE;
         JsonObjectRequest sendBookmarkRequest = new JsonObjectRequest(Request.Method.PUT,
@@ -657,7 +657,7 @@ public class Story implements Parcelable {
     private void deleteOnServer(Context ctx) {
         RequestQueue queue = RequestsSingleton.getInstance(ctx).getRequestQueue();
         String url = Constants.DELETE_STORY_API_ENTRY + this.getId();
-        final Map<String, String> mHeaders = new ArrayMap<String, String>();
+        final Map<String, String> mHeaders = new HashMap<String, String>();
         mHeaders.put("Content-Type", "text/plain");
         int requestcode = DELETE_STORY_API_REQUEST_CODE;
         JsonObjectRequest sendDeleteRequest = new JsonObjectRequest(Request.Method.DELETE,
@@ -675,7 +675,7 @@ public class Story implements Parcelable {
     public void sendReadTrigger(Context ctx) {
         RequestQueue queue = RequestsSingleton.getInstance(ctx).getRequestQueue();
         String url = Constants.READ_STORY_TRIGGER_API_ENTRY + this.getId();
-        final Map<String, String> mHeaders = new ArrayMap<String, String>();
+        final Map<String, String> mHeaders = new HashMap<String, String>();
         mHeaders.put("Content-Type", "text/plain");
         int requestcode = READ_STORY_TRIGGER_REQUEST_CODE;
         JsonObjectRequest sendReadTrigger = new JsonObjectRequest(Request.Method.PUT,

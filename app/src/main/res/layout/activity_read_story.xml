@@ -101,7 +101,7 @@
                                 android:id="@+id/story_location_view"
                                 android:layout_gravity="center_horizontal"
                                 android:textColor="@color/colorContrast"
-                                android:layout_marginStart="4dp" />
+                                android:layout_marginLeft="4dp" />
 
                         </LinearLayout>
 

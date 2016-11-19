@@ -144,7 +144,11 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 builder.include(new LatLng(l.getLatitude(),l.getLongitude()));
                 LatLngBounds bounds = builder.build();
                 int padding = 500;
-                mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, padding));
+                try {
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, padding));
+                } catch (IllegalStateException e) {
+                    mMap.animateCamera(CameraUpdateFactory.newLatLng(storylocation));
+                }
                 locationManager.removeUpdates(locationListener);
             }
 

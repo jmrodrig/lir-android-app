@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.ArrayMap;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -30,6 +29,7 @@ import java.io.File;
 import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -259,7 +259,7 @@ public class User implements Parcelable {
             url = Constants.LOAD_CURRENT_USER_DATA_API_ENTRY;
             requestcode = LOAD_CURRENT_USER_DATA_API_REQUEST_CODE;
         }
-        final Map<String, String> mHeaders = new ArrayMap<String, String>();
+        final Map<String, String> mHeaders = new HashMap<String, String>();
         mHeaders.put("Content-Type", "text/plain");
         JsonObjectRequest loadDataRequest = new JsonObjectRequest(Request.Method.GET,
                 url,
@@ -295,7 +295,7 @@ public class User implements Parcelable {
     public void sendFollow(Context ctx, Long userid) {
         RequestQueue queue = RequestsSingleton.getInstance(ctx).getRequestQueue();
         String url = Constants.FOLLOW_USER_API_ENTRY + userid;
-        final Map<String, String> mHeaders = new ArrayMap<String, String>();
+        final Map<String, String> mHeaders = new HashMap<String, String>();
         mHeaders.put("Content-Type", "text/plain");
         int requestcode = FOLLOW_USER_API_REQUEST_CODE;
         JsonObjectRequest sendFollowRequest = new JsonObjectRequest(Request.Method.PUT,
@@ -399,6 +399,7 @@ public class User implements Parcelable {
         public void onResponse(JSONArray response) {
             switch (requestcode) {
                 case LOAD_CURRENT_USER_STORIES_API_REQUEST_CODE:
+                    Log.i(Constants.TAG, response.toString());
                     Story[] storiesarray = new Gson().fromJson(response.toString(), Story[].class);
                     List<Story> userstorieslist = new ArrayList<Story>();
                     List<Story> savedstorieslist = new ArrayList<Story>();
@@ -420,6 +421,7 @@ public class User implements Parcelable {
                     ((ProfileActivity) context).onUserStoriesLoadFinished(result, savedstorieslist, true);
                     break;
                 case LOAD_PUBLIC_PROFILE_STORIES_API_REQUEST_CODE:
+                    Log.i(Constants.TAG, response.toString());
                     Story[] pprofilestoriesarray = new Gson().fromJson(response.toString(), Story[].class);
                     List<Story> pprofilestorieslist = new ArrayList<>(Arrays.asList(pprofilestoriesarray));
                     ((ProfileActivity) context).onPublicProfileStoriesLoadFinished(pprofilestorieslist);
